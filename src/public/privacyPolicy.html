@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Bloombox - Terms of Service</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="privacypolicy.css" rel="stylesheet">
+
+<script src="vendor/marked/marked.umd.js"></script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<a href="dashboard.html" class="back-link">← Back to Bloombox</a>
+
+<div id="content"></div>
+
+</div>
+
+<script>
+const markdown = `
+# BloomBox - Privacy Policy
+
+Last updated: April 2026
+
+## 1. Introduction
+This Privacy Policy explains how **BloomBox** ("we", "our", "us") collects, uses, and stores information when you interact with the website.
+Bloombox is operated by the BloomBox development team as part of a university project.
+BloomBox is a university project and will be ran as:
+
+- The official hosted instance, maintained by the developers
+- A self hosted instance that may be deployed to other users.
+
+This policy applies to the **official** hosted instance of BloomBox.
+For self-hosted instances, the responsibility of data protection lies onto the user operating it. 
+
+## 2. Data we collect.
+Bloombox collects only minimal data necessary for its core features.
+
+### Account data
+When you create an account with BloomBox you are required to provide us with:
+
+- Your Email
+- A nickname
+- A password
+
+Which are all persistently stored in our database and do not store them in plaintext.
+*Please note that all passwords are securely hashed and safely kept in our database.* 
+
+We use Resend, an email delivery service, to send transactional emails such as account verification emails, password reset emails, and order confirmations.
+
+When you provide your email address, it may be shared with Resend solely for the purpose of sending these communications on our behalf.
+
+Resend processes this information in accordance with their privacy policy:
+https://resend.com/legal/privacy-policy
+
+We **do not** share any other of the information stated above with any third party and are stored for the sole purpose to identify users.
+
+### Plant data
+
+We take readings from sensors that are required for core functionality. This includes:
+
+- Temperature, humidity, light readings 
+- Target light and humidity levels
+- Manual light and vent positions
+- Light / vent modes (auto/manual)
+- Custom system names
+- Day and night times
+- Watering schedule events
+- Sensor reading interval, vent interval and light interval
+
+Whilst these are all persistently stored, **no third party, api, or data broker are being shared this data and is kept private and for the sole use of functionality**.
+
+### Plant Photos
+
+With permission, plant photos are used to be anaylised using automated systems to generate data for functionality. Photos (with permission) can be taken automatically at set intervals. We do not use any images to identify individuals and we recommend avoiding placing the device in a place where faces and individuals can be seen.
+
+*Images are not sent to any third parties unless required for legal compliance.*
+
+## 3. Data retention
+
+- Stored data is retained until you delete it by requesting data removal.
+- Inactive or unused data may be periodically deleted.
+- You reserve the right to request all the data we hold on you and to request deletion at any time.
+
+## 4. How we use your data
+Your stored data is used soley to:
+
+- Give you readings on your plants.
+- Process your account i.e Verifiying your account, changing your passwords
+
+**We do not:**
+- Sell or share your data with third parties.
+- Use your data for analytics, advertising or profiling.
+- Track activity outside of BloomBox.
+
+## 5. Data security
+We take reasonable measures to protect data integrity, including:
+
+- Restricted access to database(s).
+- Secure connection to API requests.
+- Keep backups of your data.
+
+## 6. Third parties and APIs
+
+We use trusted third-party services to operate certain features of Bloombox.
+
+- Resend - Required for sending transactional emails such as sending verification emails.
+- TensorFlow - A software library used to locally process plant images.
+
+These services have their own privacy policies which BloomBox does not control.
+
+## 7. Your Rights
+
+You have the right to:
+
+- View what data we have on you.
+- Request deletion of your stored data.
+- Withdraw from BloomBox and halt activities. 
+
+You can view the privacy and security section in your account page to handle these requests.
+
+## 8. Where is your data stored.
+
+We have local databases in which we use to store data. We do not use third parties to help store your data. Your data will be stored within the United Kingdom and we will notify you if this changes.
+
+
+## 9. Legal Basis for Processing
+
+We process your data under the following lawful basesL
+
+- Contract: To provide account services and plant monitoring features.
+- Consent: For optional features such as plant image capture 
+
+## 10. Cookies
+
+Bloombox uses essential cookies to maintain login sessions and ensure secure access to your account.
+These cookies are necessary for the operation of the website and are not used to track you. 
+
+## 11. Updates to this policy
+This policy may be updated occasionally to reflect new features or compliance changes. Major changes will be presented in your dashboard.
+
+## 12. Contact
+
+For privacy related concerns or any questions please contact:
+
+paramanithym@cardiff.ac.uk
+`;
+
+document.getElementById('content').innerHTML =
+  marked.parse(markdown);
+
+</script>
+<script src="preferences.js"></script>
+
+</body>
+</html>

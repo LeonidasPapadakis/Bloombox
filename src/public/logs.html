@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bloombox - Logs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="logs.css">
+</head>
+<body>
+
+  <div class="sidebar">
+    <div class="sidebar-brand">
+      <p class="brand-title">Bloombox</p>
+      <p class="brand-sub">Greenhouse Control</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="dashboard.html" class="nav-item">
+        <img src="assets/dashboard.png" class="nav-icon" alt="Dashboard">
+        <span>Dashboard</span>
+      </a>
+
+      <a href="analytics.html" class="nav-item">
+        <img src="assets/analytics.png" class="nav-icon" alt="Analytics">
+        <span>Analytics</span>
+      </a>
+
+      <a href="config.html" class="nav-item">
+        <img src="assets/control.png" class="nav-icon" alt="Remote Control">
+        <span>Remote Control</span>
+      </a>
+
+      <a href="camera.html" class="nav-item">
+        <img src="assets/camera.png" class="nav-icon" alt="Camera">
+        <span>Camera</span>
+      </a>
+
+      <!-- this page -->
+      <a href="logs.html" class="nav-item active">
+        <img src="assets/logs.png" class="nav-icon" alt="Logs">
+        <span>Logs</span>
+      </a>
+
+      <a href="account.html" class="nav-item">
+        <img src="assets/account.png" class="nav-icon" alt="Account">
+        <span>Account</span>
+      </a>
+
+      <a href="privacyPolicy.html" class="nav-item">
+        <img src="assets/document.png" class="nav-icon" alt="Logs">
+        <span> Privacy Policy</span>
+      </a>
+
+    </nav>
+  </div>
+
+  <div class="main">
+    <div class="content">
+
+      <div class="page-heading">
+        <h1 class="page-title">Activity Logs</h1>
+        <p class="page-subtitle">History of all actions and events in your greenhouse</p>
+      </div>
+
+      <!-- filters -->
+      <div class="card filter-card">
+        <p class="section-label">Filter</p>
+
+        <div class="filter-row">
+          <span class="filter-label">Category:</span>
+          <button class="filter-btn cat-filter-btn active" onclick="filterCat('all', this)">All</button>
+          <button class="filter-btn cat-filter-btn" onclick="filterCat('watering', this)">Watering</button>
+          <button class="filter-btn cat-filter-btn" onclick="filterCat('lighting', this)">Lighting</button>
+          <button class="filter-btn cat-filter-btn" onclick="filterCat('ventilation', this)">Ventilation</button>
+          <button class="filter-btn cat-filter-btn" onclick="filterCat('dayNight', this)">Day/Night</button>
+          <button class="filter-btn cat-filter-btn" onclick="filterCat('settings', this)">Settings</button>
+        </div>
+
+        <div class="filter-row">
+          <span class="filter-label">Triggered by:</span>
+          <button class="filter-btn trig-filter-btn active" onclick="filterTrig('all', this)">All</button>
+          <button class="filter-btn trig-filter-btn" onclick="filterTrig('auto', this)">Automatic</button>
+          <button class="filter-btn trig-filter-btn" onclick="filterTrig('manual', this)">Manual</button>
+        </div>
+
+        <div class="filter-row">
+          <span class="filter-label">Search:</span>
+          <input type="text" class="filter-search" id="searchBox" placeholder="Search events..." oninput="applyFilters()">
+          <button class="btn-refresh" onclick="loadLogs()">↻ Refresh</button>
+        </div>
+      </div>
+
+      <!-- log list -->
+      <div class="card">
+        <div class="table-header">
+          <p class="section-label">Activity Feed</p>
+          <span class="result-count" id="resultCount">Loading...</span>
+        </div>
+
+        <div class="log-list" id="logList">
+          <p class="loading-row">Loading activity...</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <script src="logs.js"></script>
+  <script src="preferences.js"></script>
+</body>
+</html>

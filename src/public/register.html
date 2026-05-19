@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bloombox - Register Your Account</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="authBody">
+  <main class="authContainer">
+    <section class="auth-card">
+      <h1 class="auth-title">Create Account</h1>
+      <p class="auth-subtitle">Set up your Bloombox Account</p>
+
+      <form class="auth-form" id="registerForm">
+        <label class="auth-label">
+          Username
+          <input type="text" name="name" class="auth-input" id="userName" required />
+          <div id="userName-error" style="color: red; display: none;"></div>
+        </label>
+        <label class="auth-label">
+          Email
+          <input type="email" name="email" class="auth-input" id="userEmail" required />
+          <div id="userEmailError" style="color: red; display: none;"></div>
+        </label>
+
+        <label class="auth-label">
+          Password
+          <input type="password" name="password" class="auth-input" id="userPassword" required />
+          <div id="password-error" style="color: red; display: none;"></div>
+        </label>
+
+        <label class="auth-label">
+          Confirm Password
+          <input type="password" name="confirmPassword" class="auth-input" id="userConfirmPassword" required />
+        </label>
+        <section class="registerButtons">
+          <button type="submit" class="primary-btn">Register</button>
+          <button type="button" class="primary-btn" onclick="window.location.href='index.html'">Go Back</button>
+        </section>
+        <a href="login.html" class="auth-link">Already have an Account? Login</a>
+      </form>
+    </section>
+  </main>
+<script src="script.js"></script>
+<script src="preferences.js"></script>  
+</body>
+</html>
+

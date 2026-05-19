@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bloombox - Analytics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="analytics.css">
+  <script src="vendor/chart.js/chart.umd.min.js"></script>
+</head>
+<body>
+
+  <div class="sidebar">
+    <div class="sidebar-brand">
+      <p class="brand-title">Bloombox</p>
+      <p class="brand-sub">Greenhouse Control</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="dashboard.html" class="nav-item">
+        <img src="assets/dashboard.png" class="nav-icon" alt="Dashboard">
+        <span>Dashboard</span>
+      </a>
+
+      <a href="#" class="nav-item active">
+        <img src="assets/analytics.png" class="nav-icon" alt="Analytics">
+        <span>Analytics</span>
+      </a>
+
+      <a href="config.html" class="nav-item">
+        <img src="assets/control.png" class="nav-icon" alt="Remote Control">
+        <span>Remote Control</span>
+      </a>
+
+      <a href="camera.html" class="nav-item">
+        <img src="assets/camera.png" class="nav-icon" alt="Camera">
+        <span>Camera</span>
+      </a>
+
+      <a href="logs.html" class="nav-item">
+        <img src="assets/logs.png" class="nav-icon" alt="Logs">
+        <span>Logs</span>
+      </a>
+
+      <a href="account.html" class="nav-item">
+        <img src="assets/account.png" class="nav-icon" alt="Account">
+        <span>Account</span>
+      </a>
+        <a href="privacyPolicy.html" class="nav-item">
+        <img src="assets/document.png" class="nav-icon" alt="Privacy Policy">
+        <span> Privacy Policy</span>
+      </a>
+
+    </nav>
+  </div>
+  
+  <div class="main">
+    <div class="content">
+
+      <div class="page-heading analytics-heading">
+        <div>
+          <h1 class="page-title">Analytics</h1>
+          <p class="page-subtitle">View historical data</p>
+        </div>
+        <label class="system-select-label">
+          System
+          <select id="systemSelect" class="system-select">
+            <option value="all">All systems</option>
+          </select>
+        </label>
+      </div>
+
+      <!-- Temperature chart -->
+      <div class="card chart-card">
+        <p class="section-label">Temperature (Last 24 Hours)</p>
+        <div class="chart-wrap">
+          <canvas id="tempChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Humidity chart -->
+      <div class="card chart-card">
+        <p class="section-label">Humidity (Last 24 Hours)</p>
+        <div class="chart-wrap">
+          <canvas id="humChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Light level chart -->
+      <div class="card chart-card">
+        <p class="section-label">Light Level (Last 24 Hours)</p>
+        <div class="chart-wrap">
+          <canvas id="lightChart"></canvas>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+<script src="analytics-script.js"></script>
+<script src="preferences.js"></script>
+</body>
+</html>

@@ -1,0 +1,500 @@
+/* Tab bar */
+.tab-bar { display: flex; gap: 8px; }
+.tab-btn {
+  font-family: 'Inter', sans-serif;
+  padding: 9px 20px; border-radius: 8px;
+  border: 1px solid lightgray; background: white;
+  font-size: 14px; font-weight: 500; color: dimgray;
+  cursor: pointer;
+}
+.tab-btn.active { background: green; border-color: green; color: white; font-weight: 600; }
+.tab-btn:hover:not(.active) { background: whitesmoke; }
+
+/* Section label and description */
+.section-label { font-size: 25px; margin-bottom: 6px; }
+.section-desc { font-size: 18px; color: dimgray; line-height: 1.5; }
+
+/* Settings cards */
+.setting-row {
+  display: flex; align-items: center; gap: 20px;
+  padding: 18px 0; border-bottom: 1px solid whitesmoke;
+}
+.setting-row:last-child { border-bottom: none; padding-bottom: 0; }
+.setting-row:first-of-type { padding-top: 0; }
+.setting-info { flex: 1; }
+.setting-name { font-size: 20px; font-weight: 600; color: black; margin-bottom: 3px; }
+.setting-hint { font-size: 15px; color: dimgrey; }
+.setting-control { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+
+/* Stepper (big buttons for judith to see) */
+.stepper { display: flex; align-items: center; border: 1px solid lightgray; border-radius: 10px; overflow: hidden; background: white; }
+.stepper-btn { font-family: 'Inter', sans-serif; background: whitesmoke; border: none; width: 46px; height: 40px; font-size: 22px;
+  font-weight: 500; color: black; cursor: pointer; flex-shrink: 0; }
+.stepper-btn:hover { background: whitesmoke; color: green; }
+.stepper-display { font-size: 20px; font-weight: 700; color: black; width: 90px; text-align: center; border: none;
+  border-left: 1px solid lightgrey; border-right: 1px solid lightgrey; padding: 0 8px; height: 40px;
+  line-height: 40px; background: white; outline: none; appearance: textfield; }
+
+/* Slider */
+input[type="range"] { width: 180px; height: 6px; border-radius: 3px; background: lightgray; outline: none; }
+.slider-value { font-size: 25px; font-weight: 700; min-width: 64px; text-align: right; }
+.slider-unit { font-size: 20px; color: black; }
+.slider-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+
+/* Time input */
+input[type="time"] {
+  font-family: 'Inter', sans-serif; font-size: 20px; font-weight: 600; height: 40px;
+  padding: 9px 14px; border: 1px solid lightgrey; border-radius: 8px;
+  background: whitesmoke; outline: none;
+}
+input[type="time"]:focus { border-color: green; }
+
+/* Watering schedule */
+.schedule-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px; }
+.schedule-label { font-size: 13px; font-weight: 600; color: gray; }
+.schedule-field { display: flex; flex-direction: column; gap: 6px; }
+.add-row {
+  display: flex; align-items: center; gap: 10px; padding: 14px 18px;
+  border: 2px dashed lightgray; border-radius: 10px; background: white;
+}
+
+/* Buttons */
+.btn-delete {
+  font-family: 'Inter', sans-serif; background: white; color: red;
+  border: 1px solid red; border-radius: 7px; padding: 9px 16px;
+  font-size: 18px; font-weight: 600; cursor: pointer;
+}
+.btn-delete:hover { background: whitesmoke; }
+
+.btn-read { font-size: 18px; }
+.btn-read:disabled { opacity: 0.35; cursor: not-allowed; }
+
+.btn-reset {
+  font-family: 'Inter', sans-serif; background: white; color: dimgray;
+  border: 1px solid lightgray; border-radius: 7px; padding: 10px 20px;
+  font-size: 18px; font-weight: 600; cursor: pointer; transition: all 0.15s;
+}
+.btn-reset:hover { background: whitesmoke; border-color: gray; color: black; }
+
+/* Success/error message */
+.message {
+  position: fixed; bottom: 28px; right: 28px;
+  padding: 12px 20px; border-radius: 10px;
+  font-size: 20px; font-weight: 500; color: white;
+  opacity: 0;
+}
+.message.show { opacity: 1; }
+.message.success { background: green; }
+.message.error { background: red; }
+
+/* Advanced page warning banner */
+.adv-banner {
+  display: flex; align-items: flex-start; gap: 14px;
+  background: wheat; border: 1px solid yellow; border-radius: 10px; padding: 16px 20px;
+}
+.adv-banner-icon { font-size: 22px; flex-shrink: 0; margin-top: 1px; }
+.adv-banner-text p { font-size: 14px; color: darkred; line-height: 1.55; }
+.adv-banner-text strong { font-weight: 700; }
+
+/* System control card */
+
+/* Top row: label/description on the left, system count stepper on the right */
+.systems-card-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; margin-bottom: 20px; }
+.sys-count-control { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; flex-shrink: 0; }
+.sys-count-label { font-size: 20px; font-weight: 600; color: black; }
+
+/* Column header row for systems table */
+.systems-header {
+  display: grid; grid-template-columns: 300px 1fr 1fr 80px; gap: 20px; padding: 10px 0 12px;
+  border-bottom: 2px solid lightgrey; font-size: 20px; font-weight: 700; color: black;
+}
+
+/* One row per system */
+.system-row {
+  display: grid; grid-template-columns: 300px 1fr 1fr 80px;
+  gap: 20px; padding: 18px 0; border-bottom: 1px solid whitesmoke; align-items: center;
+}
+.system-row:last-child { border-bottom: none; padding-bottom: 0; }
+
+/* Name column */
+.sys-col-name { display: flex; align-items: center; margin-right: 100px; }
+.system-name-input {
+  font-family: 'Inter', sans-serif; font-size: 20px; font-weight: 600; padding: 9px 12px; border: 1px solid lightgray;
+  border-radius: 8px; background: white; outline: none; width: 100%; color: black; box-sizing: border-box;
+}
+.system-name-input:focus { border-color: green; }
+
+/* Control columns (vent / light) */
+.sys-col-control { display: flex; flex-direction: column; gap: 10px; }
+
+/* Save column */
+.sys-col-save { display: flex; align-items: center; justify-content: flex-end; }
+
+/* Auto / Manual toggle */
+.mode-toggle { display: inline-flex; border: 1px solid lightgray; border-radius: 8px; overflow: hidden; width: fit-content; }
+.mode-btn {
+  font-family: 'Inter', sans-serif; padding: 7px 14px; border: none; background: white;
+  font-size: 18px; font-weight: 500; color: dimgray; cursor: pointer;
+}
+.mode-btn + .mode-btn { border-left: 1px solid lightgray; }
+.mode-btn.active { background: green; color: white; font-weight: 600; }
+.mode-btn:hover:not(.active) { background: whitesmoke; }
+
+/* Misc */
+.spacer { flex: 1; }
+.empty-state { font-size: 20px; color: darkgrey; padding: 4px 0; }
+
+/* DARK MODE STYLES FOR CONFIG */
+.dark-mode .tab-btn {
+  background: #2a2a2a;
+  border-color: #444444;
+  color: #bbbbbb;
+}
+
+.dark-mode .tab-btn.active {
+  background: #3da86f;
+  border-color: #3da86f;
+  color: #ffffff;
+}
+
+.dark-mode .tab-btn:hover:not(.active) {
+  background: #333333;
+}
+
+.dark-mode .section-label {
+  color: #ffffff;
+}
+
+.dark-mode .section-desc {
+  color: #aaaaaa;
+}
+
+.dark-mode .setting-row {
+  border-bottom-color: #333333;
+}
+
+.dark-mode .setting-name {
+  color: #ffffff;
+}
+
+.dark-mode .setting-hint {
+  color: #888888;
+}
+
+.dark-mode .stepper {
+  background: #2a2a2a;
+  border-color: #444444;
+}
+
+.dark-mode .stepper-btn {
+  background: #333333;
+  color: #ffffff;
+}
+
+.dark-mode .stepper-btn:hover {
+  background: #444444;
+  color: #3da86f;
+}
+
+.dark-mode .stepper-display {
+  background: #2a2a2a;
+  border-left-color: #444444;
+  border-right-color: #444444;
+  color: #ffffff;
+}
+
+.dark-mode input[type="range"] {
+  background: #444444;
+}
+
+.dark-mode .slider-value {
+  color: #ffffff;
+}
+
+.dark-mode .slider-unit {
+  color: #ffffff;
+}
+
+.dark-mode input[type="time"] {
+  background: #2a2a2a;
+  border-color: #444444;
+  color: #ffffff;
+}
+
+.dark-mode input[type="time"]:focus {
+  border-color: #3da86f;
+}
+
+.dark-mode .schedule-label {
+  color: #999999;
+}
+
+.dark-mode .add-row {
+  background: #2a2a2a;
+  border-color: #444444;
+}
+
+.dark-mode .btn-delete {
+  background: #2a2a2a;
+  color: #ff6b6b;
+  border-color: #ff6b6b;
+}
+
+.dark-mode .btn-delete:hover {
+  background: #333333;
+}
+
+.dark-mode .btn-reset {
+  background: #2a2a2a;
+  color: #aaaaaa;
+  border-color: #444444;
+}
+
+.dark-mode .btn-reset:hover {
+  background: #333333;
+  border-color: #666666;
+  color: #ffffff;
+}
+
+.dark-mode .adv-banner {
+  background: #553300;
+  border-color: #664400;
+}
+
+.dark-mode .adv-banner-text p {
+  color: #ffccaa;
+}
+
+.dark-mode .systems-header {
+  border-bottom-color: #444444;
+  color: #ffffff;
+}
+
+.dark-mode .system-row {
+  border-bottom-color: #333333;
+}
+
+.dark-mode .sys-count-label {
+  color: #ffffff;
+}
+
+.dark-mode .system-name-input {
+  background: #2a2a2a;
+  border-color: #444444;
+  color: #ffffff;
+}
+
+.dark-mode .system-name-input:focus {
+  border-color: #3da86f;
+}
+
+.dark-mode .mode-toggle {
+  border-color: #444444;
+}
+
+.dark-mode .mode-btn {
+  background: #2a2a2a;
+  color: #aaaaaa;
+  border-color: #444444;
+}
+
+.dark-mode .mode-btn + .mode-btn {
+  border-left-color: #444444;
+}
+
+.dark-mode .mode-btn.active {
+  background: #3da86f;
+  color: #ffffff;
+}
+
+.dark-mode .mode-btn:hover:not(.active) {
+  background: #333333;
+}
+
+.dark-mode .empty-state {
+  color: #666666;
+}
+
+/* HIGH CONTRAST MODE FOR CONFIG */
+.high-contrast .tab-btn {
+  background: black;
+  border-color: #00ffff;
+  border-width: 2px;
+  color: #00ffff;
+}
+
+.high-contrast .tab-btn.active {
+  background: #00ff00;
+  border-color: #00ff00;
+  color: black;
+  font-weight: 600;
+}
+
+.high-contrast .tab-btn:hover:not(.active) {
+  background: black;
+  color: white;
+}
+
+.high-contrast .section-label {
+  color: #ffff00;
+}
+
+.high-contrast .section-desc {
+  color: #00ffff;
+}
+
+.high-contrast .setting-row {
+  border-bottom-color: #00aaff;
+}
+
+.high-contrast .setting-name {
+  color: white;
+}
+
+.high-contrast .setting-hint {
+  color: #ffff00;
+}
+
+.high-contrast .stepper {
+  background: black;
+  border-color: #00ffff;
+  border-width: 2px;
+}
+
+.high-contrast .stepper-btn {
+  background: black;
+  color: #00ffff;
+  border-color: #00ffff;
+}
+
+.high-contrast .stepper-btn:hover {
+  background: #00ffff;
+  color: black;
+}
+
+.high-contrast .stepper-display {
+  background: black;
+  border-left-color: #00ffff;
+  border-right-color: #00ffff;
+  color: #00ffff;
+}
+
+.high-contrast input[type="range"] {
+  background: #ffff00;
+}
+
+.high-contrast .slider-value {
+  color: #ffff00;
+}
+
+.high-contrast .slider-unit {
+  color: #ffff00;
+}
+
+.high-contrast input[type="time"] {
+  background: black;
+  border-color: #00ffff;
+  border-width: 2px;
+  color: #00ffff;
+}
+
+.high-contrast input[type="time"]:focus {
+  border-color: white;
+  outline-color: #00ffff;
+}
+
+.high-contrast .schedule-label {
+  color: #ffff00;
+}
+
+.high-contrast .add-row {
+  background: black;
+  border-color: #00ffff;
+}
+
+.high-contrast .btn-delete {
+  background: #ff3333;
+  color: white;
+  border-color: #ff3333;
+  border-width: 2px;
+}
+
+.high-contrast .btn-delete:hover {
+  background: white;
+  color: #ff3333;
+}
+
+.high-contrast .btn-reset {
+  background: #ffff00;
+  color: black;
+  border-color: #ffff00;
+  border-width: 2px;
+}
+
+.high-contrast .btn-reset:hover {
+  background: white;
+  color: black;
+}
+
+.high-contrast .adv-banner {
+  background: black;
+  border-color: #ffaa00;
+  border-width: 2px;
+}
+
+.high-contrast .adv-banner-text p {
+  color: #ffaa00;
+}
+
+.high-contrast .systems-header {
+  border-bottom-color: #ffff00;
+  color: #ffff00;
+}
+
+.high-contrast .system-row {
+  border-bottom-color: #00aaff;
+}
+
+.high-contrast .sys-count-label {
+  color: #ffff00;
+}
+
+.high-contrast .system-name-input {
+  background: black;
+  border-color: #00ffff;
+  border-width: 2px;
+  color: #00ffff;
+}
+
+.high-contrast .system-name-input:focus {
+  border-color: white;
+  outline-color: #00ffff;
+}
+
+.high-contrast .mode-toggle {
+  border-color: #00ffff;
+  border-width: 2px;
+}
+
+.high-contrast .mode-btn {
+  background: black;
+  color: #00ffff;
+  border-color: #00ffff;
+}
+
+.high-contrast .mode-btn + .mode-btn {
+  border-left-color: #00ffff;
+}
+
+.high-contrast .mode-btn.active {
+  background: #00ff00;
+  color: black;
+}
+
+.high-contrast .mode-btn:hover:not(.active) {
+  background: #ffff99;
+}
+
+.high-contrast .empty-state {
+  color: #000000;
+}

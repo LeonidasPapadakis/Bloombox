@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bloombox - Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+
+  <div class="sidebar">
+    <div class="sidebar-brand">
+      <p class="brand-title">Bloombox</p>
+      <p class="brand-sub">Greenhouse Control</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="#" class="nav-item active" aria-current="page">
+        <img src="assets/dashboard.png" class="nav-icon" alt="">
+        <span>Dashboard</span>
+      </a>
+
+      <a href="analytics.html" class="nav-item">
+        <img src="assets/analytics.png" class="nav-icon" alt="">
+        <span>Analytics</span>
+      </a>
+
+      <a href="config.html" class="nav-item">
+        <img src="assets/control.png" class="nav-icon" alt="">
+        <span>Remote Control</span>
+      </a>
+
+      <a href="camera.html" class="nav-item">
+        <img src="assets/camera.png" class="nav-icon" alt="">
+        <span>Camera</span>
+      </a>
+
+      <a href="logs.html" class="nav-item">
+        <img src="assets/logs.png" class="nav-icon" alt="">
+        <span>Logs</span>
+      </a>
+
+      <a href="account.html" class="nav-item">
+        <img src="assets/account.png" class="nav-icon" alt="Account">
+        <span>Account</span>
+      </a>
+
+       <a href="privacyPolicy.html" class="nav-item">
+        <img src="assets/document.png" class="nav-icon" alt="Logs">
+        <span> Privacy Policy</span>
+      </a>
+
+    </nav>
+  </div>
+
+  <div class="main">
+    <div class="content">
+
+      <div class="message" id="message"></div>
+
+      <!-- Heading -->
+      <div class="page-heading">
+        <h1 class="page-title">Greenhouse overview</h1>
+        <p class="page-subtitle">Greenhouse time <span id="systemClock" class="system-clock">--:--:--</span></p>
+      </div>
+
+      <!-- Per-system blocks rendered by JS -->
+      <div id="systemsContainer"></div>
+
+    </div>
+  </div>
+  <script src="preferences.js"></script>
+  <script src="dashboard-script.js"></script>
+</body>
+
+
+</html>

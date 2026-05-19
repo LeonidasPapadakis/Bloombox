@@ -1,0 +1,13 @@
+Flask==3.1.0
+flask-cors==5.0.0
+future==1.0.0
+iso8601==2.1.0
+numpy==2.2.5
+opencv-python==4.10.0.84
+packaging==26.0
+picamera2==0.3.22
+pyserial==3.5
+PyYAML==6.0.3
+setuptools==82.0.1
+tflite-runtime==2.14.0
+wheel==0.46.3

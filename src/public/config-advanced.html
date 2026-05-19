@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bloombox - Advanced Settings</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="dashboard.css">
+  <link rel="stylesheet" href="config.css">
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="sidebar-brand">
+      <p class="brand-title">Bloombox</p>
+      <p class="brand-sub">Greenhouse Control</p>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="dashboard.html" class="nav-item">
+        <img src="assets/dashboard.png" class="nav-icon" alt="Dashboard">
+        <span>Dashboard</span>
+      </a>
+      <a href="analytics.html" class="nav-item">
+        <img src="assets/analytics.png" class="nav-icon" alt="Analytics">
+        <span>Analytics</span>
+      </a>
+      <a href="config.html" class="nav-item active">
+        <img src="assets/control.png" class="nav-icon" alt="Remote Control">
+        <span>Remote Control</span>
+      </a>
+      <a href="camera.html" class="nav-item">
+        <img src="assets/camera.png" class="nav-icon" alt="Camera">
+        <span>Camera</span>
+      </a>
+      <a href="logs.html" class="nav-item">
+        <img src="assets/logs.png" class="nav-icon" alt="Logs">
+        <span>Logs</span>
+      </a>
+      <a href="account.html" class="nav-item">
+        <img src="assets/computer-icons-user-profile-avatar-profile.jpg" class="nav-icon" alt="Account">
+        <span>Account</span>
+      </a>
+    </nav>
+  </div>
+
+  <div class="main">
+    <div class="content">
+
+      <div class="message" id="message"></div>
+
+      <div class="page-heading">
+        <h1 class="page-title">Configuration</h1>
+        <p class="page-subtitle">Adjust your greenhouse settings</p>
+      </div>
+
+      <div class="tab-bar">
+        <button class="tab-btn" onclick="window.location.href='config.html'">Target Levels</button>
+        <button class="tab-btn active">Advanced Settings</button>
+      </div>
+
+      <!-- Warning banner -->
+      <div class="adv-banner">
+        <span class="adv-banner-icon">&#9888;&#65039;</span>
+        <div class="adv-banner-text">
+          <p><strong>These are advanced settings.</strong> Changing these values affects how often the system checks its sensors and adjusts the greenhouse. All intervals are in milliseconds. If you are unsure, use the reset button below to restore safe defaults.</p>
+        </div>
+      </div>
+
+      <!-- System clock -->
+      <div class="card">
+        <div class="setting-row">
+          <div class="setting-info">
+            <p class="section-label">🕒 System Clock</p>
+            <p class="section-desc">
+              By default your greenhouse syncs its clock from the internet. Switch to manual to set the time yourself —
+              useful when the greenhouse is offline.
+            </p>
+          </div>
+          <div class="setting-control">
+            <div class="mode-toggle">
+              <button class="mode-btn" id="clockMode-auto" onclick="setClockMode('auto')">Auto</button>
+              <button class="mode-btn" id="clockMode-manual" onclick="setClockMode('manual')">Manual</button>
+            </div>
+          </div>
+        </div>
+        <div class="setting-row">
+          <div class="setting-info">
+            <p class="setting-name">Manual time</p>
+            <p class="setting-hint">Time of day to set the greenhouse's clock to.</p>
+          </div>
+          <div class="setting-control">
+            <input type="time" id="manualTime" value="12:00"
+              oninput="handleChange('manualTime', 'manualTime-btn')">
+            <button class="btn-read" id="manualTime-btn" disabled
+              onclick="savePi('manualTime', 'manualTime', 'manualTime-btn')">Save</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sensor reading interval -->
+      <div class="card">
+        <div class="setting-row">
+          <div class="setting-info">
+            <p class="section-label">&#128225; Sensor Reading Interval</p>
+            <p class="section-desc">How often temperature, humidity, and light sensors are read and logged.</p>
+          </div>
+          <div class="setting-control">
+            <div class="stepper">
+              <button class="stepper-btn" onclick="step('readingInterval', 'readingInterval-btn', -5)">−</button>
+              <input type="number" class="stepper-display" id="readingInterval" value="60" min="5" max="3600"
+                oninput="handleChange(this, 'readingInterval-btn')">
+              <button class="stepper-btn" onclick="step('readingInterval', 'readingInterval-btn', 5)">+</button>
+            </div>
+            <span class="stepper-unit">seconds</span>
+            <button class="btn-read" id="readingInterval-btn" disabled
+              onclick="saveArduino('readingInterval', 0, 'readingInterval', 'readingInterval-btn')">Save</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ventilation check interval -->
+      <div class="card">
+        <div class="setting-row">
+          <div class="setting-info">
+            <p class="section-label">🍃 Ventilation Check Interval</p>
+            <p class="section-desc">How often the system checks humidity and adjusts the vents. A shorter interval means faster response to changes.</p>
+          </div>
+          <div class="setting-control">
+            <div class="stepper">
+              <button class="stepper-btn" onclick="step('ventInterval', 'ventInterval-btn', -500)">−</button>
+              <input type="number" class="stepper-display" id="ventInterval" value="5000" min="500" max="3600000" step="100"
+                oninput="handleChange(this, 'ventInterval-btn')">
+              <button class="stepper-btn" onclick="step('ventInterval', 'ventInterval-btn', 500)">+</button>
+            </div>
+            <span class="stepper-unit">milliseconds</span>
+            <button class="btn-read" id="ventInterval-btn" disabled
+              onclick="saveArduino('ventInterval', 0, 'ventInterval', 'ventInterval-btn')">Save</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lighting check interval -->
+      <div class="card">
+        <div class="setting-row">
+          <div class="setting-info">
+            <p class="section-label">💡 Lighting Check Interval</p>
+            <p class="section-desc">How often the system checks the light level and adjusts the LEDs. A shorter interval gives smoother dimming.</p>
+          </div>
+          <div class="setting-control">
+            <div class="stepper">
+              <button class="stepper-btn" onclick="step('lightInterval', 'lightInterval-btn', -50)">−</button>
+              <input type="number" class="stepper-display" id="lightInterval" value="50" min="50" max="3600000"
+                oninput="handleChange(this, 'lightInterval-btn')">
+              <button class="stepper-btn" onclick="step('lightInterval', 'lightInterval-btn', 50)">+</button>
+            </div>
+            <span class="stepper-unit">milliseconds</span>
+            <button class="btn-read" id="lightInterval-btn" disabled
+              onclick="saveArduino('lightInterval', 0, 'lightInterval', 'lightInterval-btn')">Save</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Network -->
+      <div class="card">
+        <div class="setting-row">
+          <div class="setting-info">
+            <p class="section-label">📶 Network</p>
+            <p class="section-desc">
+              Connect your greenhouse to your home WiFi so it can reach the internet (for time sync, weather data, etc).
+              If no WiFi is configured — or it can't connect — the greenhouse falls back to its own
+              <strong>Bloombox</strong> hotspot so you can still reach this page.
+            </p>
+            <p class="setting-hint" id="network-status">Status: loading...</p>
+          </div>
+        </div>
+
+        <div class="setting-row">
+          <div class="setting-info">
+            <p class="setting-name">Home WiFi</p>
+            <p class="setting-hint">SSID and password of the WiFi network you'd like the greenhouse to join.</p>
+          </div>
+          <div class="setting-control" style="flex-direction: column; align-items: flex-end; gap: 8px;">
+            <input type="text" id="wifiSsid" placeholder="Network name (SSID)"
+              autocomplete="off" oninput="onWifiChange()">
+            <input type="password" id="wifiPassword" placeholder="WiFi password"
+              autocomplete="new-password" oninput="onWifiChange()">
+            <div style="display: flex; gap: 8px;">
+              <button class="btn-delete" id="wifi-forget-btn" onclick="forgetWifi()">Forget</button>
+              <button class="btn-read" id="wifi-save-btn" onclick="saveWifi()" disabled>Save</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="setting-row">
+          <div class="setting-info">
+            <p class="setting-name">Hotspot password</p>
+            <p class="setting-hint">Password for the fallback <strong>Bloombox</strong> hotspot. Must be 8–63 characters.</p>
+          </div>
+          <div class="setting-control">
+            <input type="text" id="hotspotPassword" placeholder="bloombox123"
+              minlength="8" maxlength="63" autocomplete="off"
+              oninput="handleChange('hotspotPassword', 'hotspotPassword-btn')">
+            <button class="btn-read" id="hotspotPassword-btn" disabled
+              onclick="saveHotspotPassword()">Save</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reset to defaults -->
+      <div class="card">
+        <div class="setting-row">
+          <div class="setting-info">
+            <p class="section-label">🔁 Reset to Defaults</p>
+            <p class="section-desc">Restores all interval settings to their default factory values. This cannot be undone.</p>
+          </div>
+          <button class="btn-reset" onclick="confirmReset()">Reset all to defaults</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="config-script.js"></script>
+  <script>
+    loadAdvancedSettings();
+    loadPiConfig().then(loadClockMode);
+    loadNetworkSettings();
+    setInterval(loadNetworkStatus, 5000);
+
+    function confirmReset() {
+      if (confirm('Reset all interval settings to their defaults? This will overwrite any saved values.')) {
+        resetToDefaults();
+      }
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bloombox - Security</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="settingsBody">
+  <div id="securitySettings">
+    <div class="sidebar">
+      <div class="sidebar-brand">
+        <a href="dashboard.html"><p class="brand-title">Bloombox</p></a>
+        <p class="brand-sub">User Settings</p>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="account.html" class="nav-item">
+          <span>Account Details</span>
+        </a>
+        <a href="security.html" class="nav-item-active">
+          <span>Security and Privacy</span>
+        </a>
+        <a href="preferences.html" class="nav-item">
+          <span>App Preferences</span>
+        </a>
+      </nav>
+    </div>
+
+    <div class="accountDetails">
+      <h2>Security & Privacy</h2>
+
+      <!-- 2FA Section -->
+      <div class="settings-section">
+        <h3>Two-Factor Authentication</h3>
+        <p style="font-size: 14px; color: #555; margin-bottom: 16px; line-height: 1.7;">
+          When enabled, you'll be sent a 6 digit code to your email every time you log in.
+        </p>
+        <div class="field-group">
+          <label>Status:</label>
+          <span id="twoFactorStatus" style="flex: 1; font-size: 14px; padding: 8px 12px;">Loading...</span>
+          <button id="toggleTwoFactorBtn" class="change-btn">Loading...</button>
+        </div>
+        <p id="twoFactorMsg" style="display: none; font-size: 13px; margin-top: 10px;"></p>
+      </div>
+
+      <!-- Data Section -->
+      <div class="settings-section">
+        <h3>Request Your Data</h3>
+        <p style="font-size: 14px; color: #555; margin-bottom: 16px; line-height: 1.7;">
+          Request a copy of all data we hold about you. We'll send it to your registered email.
+        </p>
+        <button id="requestDataBtn" class="change-btn">Request My Data</button>
+        <p id="requestDataMsg" style="display: none; font-size: 13px; color: #17726d; margin-top: 10px;">
+        Your data has been sent to your email.
+        </p>
+      </div>
+
+      <!-- Delete Account Section -->
+      <div class="settings-section">
+        <h3>Delete Account</h3>
+        <p style="font-size: 14px; color: #555; margin-bottom: 16px; line-height: 1.7;">
+          Permanently delete your account and all associated data. <strong>This cannot be undone.</strong>
+        </p>
+        <button id="deleteAccountBtn" class="change-btn" style="background: #c0392b;">Delete My Account</button>
+      </div>
+      <button id="backToDashboardBtn" class="primary-btn" onclick="window.location.href='dashboard.html'">Back to Dashboard</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+  <script src="preferences.js"></script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bloombox - Configuration</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="dashboard.css">
+  <link rel="stylesheet" href="config.css">
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="sidebar-brand">
+      <p class="brand-title">Bloombox</p>
+      <p class="brand-sub">Greenhouse Control</p>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="dashboard.html" class="nav-item">
+        <img src="assets/dashboard.png" class="nav-icon" alt="Dashboard">
+        <span>Dashboard</span>
+      </a>
+      <a href="analytics.html" class="nav-item">
+        <img src="assets/analytics.png" class="nav-icon" alt="Analytics">
+        <span>Analytics</span>
+      </a>
+      <a href="#" class="nav-item active">
+        <img src="assets/control.png" class="nav-icon" alt="Remote Control">
+        <span>Remote Control</span>
+      </a>
+      <a href="camera.html" class="nav-item">
+        <img src="assets/camera.png" class="nav-icon" alt="Camera">
+        <span>Camera</span>
+      </a>
+      <a href="logs.html" class="nav-item">
+        <img src="assets/logs.png" class="nav-icon" alt="Logs">
+        <span>Logs</span>
+      </a>
+      <a href="account.html" class="nav-item">
+        <img src="assets/account.png" class="nav-icon" alt="Account">
+        <span>Account</span>
+      </a>
+      <a href="privacyPolicy.html" class="nav-item">
+        <img src="assets/document.png" class="nav-icon" alt="Privacy Policy">
+        <span> Privacy Policy</span>
+      </a>
+    </nav>
+  </div>
+
+  <!-- Main content -->
+  <div class="main">
+    <div class="content">
+
+      <div class="message" id="message"></div>
+
+      <!-- Heading -->
+      <div class="page-heading">
+        <h1 class="page-title">Configuration</h1>
+        <p class="page-subtitle">Adjust your greenhouse settings</p>
+      </div>
+
+      <!-- Tabs for switching between regular and advanced settings -->
+      <div class="tab-bar">
+        <button class="tab-btn active">Target Levels</button>
+        <button class="tab-btn" onclick="window.location.href='config-advanced.html'">Advanced Settings</button>
+      </div>
+
+      <!-- Systems card -->
+        <div class="card systems-card">
+
+          <!-- Card heading + system count stepper in one row -->
+          <div class="systems-card-header">
+            <div>
+              <p class="section-label">⚙️ System Controls</p>
+              <p class="section-desc">
+                Give each system in your greenhouse a name, and choose how you'd like the vents and lights to behave.
+                You can let the greenhouse maintain a certain level with <strong>Auto</strong>, or set them yourself with <strong>Manual</strong>.
+              </p>
+            </div>
+            <div class="sys-count-control">
+              <span class="sys-count-label">Number of systems</span>
+              <div class="stepper">
+                <button class="stepper-btn" onclick="changeSystemCount(-1)">−</button>
+                <input type="number" class="stepper-display" id="systemCount-display" value="1" min="1" max="3">
+                <button class="stepper-btn" onclick="changeSystemCount(1)">+</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column headers -->
+          <div class="systems-header">
+            <div class="sys-col-name">System</div>
+            <div>🍃 Ventilation</div>
+            <div>💡 Lighting</div>
+            <div></div><!-- save column -->
+          </div>
+
+          <!-- Rows populated by JS -->
+          <div id="systemRows"></div>
+
+        </div>
+
+      <!-- Grid -->
+      <div class="sensor-grid">
+
+        <!-- Watering schedule -->
+        <div class="card">
+          <p class="section-label">💧 Watering Schedule</p>
+          <p class="section-desc">Set up automatic watering times. Your greenhouse will water on its own at the times you choose</p>
+
+          <div class="schedule-list" id="scheduleList">
+            <p class="empty-state">Loading...</p>
+          </div>
+          <p class="setting-name">Add New Event</p>
+          <div class="add-row">
+
+            <div class="schedule-field">
+              <span class="schedule-label">Time</span>
+              <input type="time" id="new-time" value="09:00">
+            </div>
+
+            <div class="schedule-field">
+              <span class="schedule-label">System</span>
+              <div class="stepper">
+                <button class="stepper-btn" onclick="step('new-systemId', '', -1)">−</button>
+                <input type="number" class="stepper-display" id="new-systemId" value="1" min="1" max="3">
+                <button class="stepper-btn" onclick="step('new-systemId', '', 1)">+</button>
+              </div>
+            </div>
+
+            <div class="schedule-field">
+              <span class="schedule-label">Seconds</span>
+              <div class="stepper">
+                <button class="stepper-btn" onclick="step('new-amount', '', -1)">−</button>
+                <input type="number" class="stepper-display" id="new-amount" value="30" min="1" max="3600">
+                <button class="stepper-btn" onclick="step('new-amount', '', 1)">+</button>
+              </div>
+            </div>
+            
+            <div class="spacer"></div>
+            <button class="btn-read" onclick="addEvent()">+ Add</button>
+          </div>
+        </div>
+
+        <!-- Per-system day/night times -->
+        <div class="card">
+          <p class="section-label">🌙 Day & Night Times</p>
+          <p class="section-desc">
+            Set when each system's day begins and ends. During the day, the lights and sensors are active.
+            At night, the lights switch off and the system rests.
+          </p>
+          <div id="dayNightRows"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="config-script.js"></script>
+  <script src="preferences.js"></script>
+</body>
+
+<script src="config-script.js"></script>
+
+</html>

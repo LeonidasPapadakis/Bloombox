@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bloombox - Two Factor Authentication</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="authBody">
+  <main class="authContainer">
+    <section class="auth-card">
+      <h1 class="auth-title">Check your email</h1>
+      <p class="auth-subtitle">We've sent a 6 digit code to your email. Enter it below to log in.</p>
+
+      <form class="auth-form" id="twoFactorForm">
+        <label class="auth-label">
+          Code
+          <input type="text" class="auth-input" id="twoFactorCode" maxlength="6" placeholder="000000" required />
+          <div id="twoFactorError" style="color: red; display: none;"></div>
+        </label>
+        <button type="submit" class="primary-btn">Verify</button>
+        <button type="button" class="primary-btn" id="resendCodeBtn">Resend Code</button>
+        <a href="login.html" class="auth-link">Back to Login</a>
+      </form>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

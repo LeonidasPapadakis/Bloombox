@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bloombox - Settings</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="settingsBody">
+  <div id="userSettings">
+    <div class="sidebar">
+      <div class="sidebar-brand">
+        <a href="dashboard.html"><p class="brand-title">Bloombox</p></a>
+        <p class="brand-sub">User Settings</p>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="account.html" class="nav-item-active">
+          <span>Account Details</span>
+        </a>
+        <a href="security.html" class="nav-item">
+          <span>Security and Privacy</span>
+        </a>
+        <a href="preferences.html" class="nav-item">
+          <span>App Preferences</span>
+        </a>
+        
+      </nav>
+    </div>
+
+    <div class="accountDetails">
+      <h2>Your Account Details:</h2>
+      <h3 id="welcomeMessage"></h3>
+      <div class="field-group">
+        <label for="userNameInput">Username:</label>
+        <input type="text" id="userNameInput" readonly>
+        <button id="changeNameBtn" class="change-btn">Change</button>
+      </div>
+      <div class="field-group">
+        <label for="userEmailInput">Email:</label>
+        <input type="email" id="userEmailInput" readonly>
+      </div>
+      <div class="field-group">
+        <label for="userPasswordInput">Password:</label>
+        <input type="password" id="userPasswordInput" readonly>
+        <button id="changePasswordBtn" class="change-btn">Send Link</button>
+      </div>
+      <button id="backToDashboardBtn" class="primary-btn" onclick="window.location.href='dashboard.html'">Back to Dashboard</button>
+      <button id="logoutBtn" class="primary-btn">Log Out</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+  <script src="preferences.js"></script>
+</body>
+</html>

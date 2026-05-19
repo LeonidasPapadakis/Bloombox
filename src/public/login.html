@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bloombox - Login to your Account</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="authBody">
+  <main class="authContainer">
+    <section class="auth-card">
+      <h1 class="auth-title">Login to Existing Account</h1>
+      <p class="auth-subtitle"> Enter your details to log into your Bloombox Account</p>
+
+      <form class="auth-form" id="loginForm">
+        <label class="auth-label">
+          Email
+          <input type="email" name="email" class="auth-input" id="userLoginEmail" required />
+          <div id="userLoginEmailError" style="color: red; display: none;"></div>
+        </label>
+
+        <label class="auth-label">
+          Password
+          <input type="password" name="password" class="auth-input" id="userLoginPassword" required />
+          <div id="password-LoginError" style="color: red; display: none;"></div>
+        </label>
+        <section class="loginButtons">
+          <button type="submit" class="primary-btn">Login</button>
+          <button type="button" class="primary-btn" onclick="window.location.href='index.html'">Go Back</button>
+        </section>
+        <a href="register.html" class="auth-link">No Account? Register</a>
+        
+        <a href="forgotPassword.html" class="auth-link"> Forgot Password?</a>
+        
+      </form>
+    </section>
+  </main>
+<script src="script.js"></script>
+<script src="preferences.js"></script>  
+</body>
+</html>
+

@@ -1,0 +1,715 @@
+
+* {
+    box-sizing: border-box;
+  }
+
+    body {
+    background-image: url('./images/BloomBox_Background.png');
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    color: #222222;
+    font-size: 18px; 
+  }
+  
+  .homeBody {
+    background-image: url('./images/BloomBox_Background.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    
+  }
+
+  .authBody{
+    background-image: url('./images/BloomBox_Background.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    
+  }
+  
+  .settingsBody {
+    background-image: url('./images/BloomBox_Background.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    
+  }
+
+  .authContainer {
+    width: 100%;
+    max-width: 480px;
+    padding: 16px;
+  }
+
+  .homeContainer {
+    width: 100%;
+    max-width: 800px;
+    padding: 16px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    padding: 4rem 1.5rem;
+  }
+  
+  .auth-card {
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #d0d7e2;
+    padding: 28px 24px;
+  }
+
+  .home-card {
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(12px);
+    border-radius: 24px;
+    padding: 3rem;
+    max-width: 650px;
+  }
+  
+  .auth-title {
+    margin: 0 0 8px;
+    font-size: 26px;
+  }
+  
+  .auth-subtitle {
+    margin: 0 0 20px;
+    color: #555555;
+    font-size: 16px;
+  }
+  
+  .auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  
+  .auth-label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 16px;
+  }
+
+  .auth-link {
+    color: #3c3c3c;
+    text-decoration: none;
+    font-size: 14px;
+    margin-top: 8px;
+    align-self: center;
+  }
+
+  .auth-visited {
+    color: #3c3c3c;
+  }
+  
+  .auth-input {
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: 1px solid #c4ccd8;
+    font-size: 16px;
+  }
+  
+  .auth-input:focus {
+    outline: 2px solid #3182ce;
+    outline-offset: 1px;
+    border-color: #3182ce;
+  }
+  
+  .primary-btn {
+    font-family: 'Inter', sans-serif;
+    border-radius: 1000px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    font-size: 16px;
+    padding: 10px 20px;
+    background: #17726d;
+    color: #ffffff;
+    padding: 12px 24px;
+    font-size: 16px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 20px;
+  }
+  
+  .primary-btn:hover {
+    background: #125854;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15)
+  }
+
+  .registerButtons{
+    display: inline-flex;
+    justify-content: center;
+    margin-top: 12px;
+    margin-right: 50px;
+    margin-left: 50px;
+  }
+
+  .loginButtons{
+    display: inline-flex;
+    justify-content: center;
+    margin-top: 12px;
+    margin-right: 50px;
+    margin-left: 50px;
+  }
+
+  .sidebar {
+    width: 210px;
+    min-height: 100vh;
+    background: #1a4a1b;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+.sidebar-brand {
+  padding: 22px 18px 20px;
+}
+
+.brand-title {
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 800;
+
+}
+
+.brand-sub {
+  color: #888;
+  font-size: 12px;
+}
+
+.sidebar-nav {
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.nav-item {
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  align-items: center;
+  padding: 11px 10px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  background: transparent;
+  transition: background 0.15s, color 0.15s;
+  color: #fff;
+}
+
+.nav-item-active {
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  align-items: center;
+  padding: 11px 10px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  background: #22c55e;
+  transition: background 0.15s, color 0.15s;
+  color: #fff;
+}
+
+.nav-item:hover {
+  background: #0c1e0b;
+  color: #fff;
+}
+
+#welcomeMessage {
+  font-size: 24px;
+  position: fixed;
+  top: 20px;
+  font-weight: 600;
+}
+
+.accountDetails {
+  padding: 20px;
+  margin-left: 210px;
+  flex: 1;
+  width: calc(100% - 210px);
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  justify-content: center;
+  align-items: center;  
+  
+}
+
+.accountDetails h2 {
+  margin-top: 0;
+  color: #222222;
+}
+
+.field-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.field-group label {
+  width: 100px;
+  font-weight: 600;
+  color: #222222;
+}
+
+.field-group input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #c4ccd8;
+  border-radius: 6px;
+  font-size: 16px;
+  background: #f9f9f9;
+  font-family: 'Inter', sans-serif;
+}
+
+.field-group input[readonly] {
+  background: #f0f0f0;
+}
+
+.change-btn {
+  font-family: 'Inter', sans-serif;
+  margin-left: 10px;
+  padding: 8px 16px;
+  background: #17726d;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.change-btn:hover {
+  background: #125854;
+}
+
+.settings-section {
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.settings-section h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #222222;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.checkbox-group input[type="checkbox"] {
+  width: auto;
+  margin-right: 10px;
+  cursor: pointer;
+  flex: 0;
+}
+
+.checkbox-group label {
+  width: auto;
+  margin-bottom: 0;
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.field-group select,
+.field-group input[type="time"] {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #c4ccd8;
+  border-radius: 6px;
+  font-size: 16px;
+  background: #f9f9f9;
+  font-family: 'Inter', sans-serif;
+}
+
+.field-group select:focus,
+.field-group input[type="time"]:focus {
+  outline: 2px solid #3182ce;
+  outline-offset: 1px;
+  border-color: #3182ce;
+  background: #ffffff;
+}
+
+.field-group select {
+  cursor: pointer;
+}
+
+.preferencesSettings {
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  margin-left: 210px;
+  flex: 1;
+  width: calc(100% - 210px);
+  justify-content: center;
+  align-items: center;  
+}
+
+/* Dark mode */
+body.dark-mode {
+  background-image: url('./images/Bloombox_DarkBackground.png');
+  color: #1a1a1a;
+}
+
+.homeBody.dark-mode,
+.authBody.dark-mode,
+.settingsBody.dark-mode {
+  background-image: url('./images/Bloombox_DarkBackground.png');
+}
+
+/* Auth card and containers */
+.dark-mode .auth-card {
+  background: #1a1a1a;
+  border-color: #333333;
+  color: #ffffff;
+}
+
+.dark-mode .auth-title {
+  color: #ffffff;
+}
+
+.dark-mode .auth-subtitle {
+  color: #aaaaaa;
+}
+
+.dark-mode .auth-link,
+.dark-mode .auth-visited {
+  color: #66ccff;
+}
+
+.dark-mode .auth-input {
+  background: #2a2a2a;
+  border-color: #444444;
+  color: #ffffff;
+}
+
+.dark-mode .auth-input:focus {
+  outline-color: #66ccff;
+  border-color: #66ccff;
+}
+
+.dark-mode .home-card {
+  background: rgba(26, 26, 26, 0.85);
+  color: #ffffff;
+}
+
+/* Buttons */
+.dark-mode .primary-btn {
+  background: #2a9a8d;
+  color: #ffffff;
+}
+
+.dark-mode .primary-btn:hover {
+  background: #1f7a6d;
+}
+
+.dark-mode .change-btn {
+  background: #2a9a8d;
+  color: #ffffff;
+}
+
+.dark-mode .change-btn:hover {
+  background: #1f7a6d;
+}
+
+/* Sidebar */
+.dark-mode .sidebar {
+  background: #1a4a1b;
+}
+
+.dark-mode .brand-title {
+  color: #ffffff;
+}
+
+.dark-mode .brand-sub {
+  color: #888888;
+}
+
+.dark-mode .nav-item {
+  color: #ffffff;
+}
+
+.dark-mode .nav-item:hover {
+  background: #2a5a2b;
+  color: #ffffff;
+}
+
+.dark-mode .nav-item-active {
+  background: #3da86f;
+  color: #ffffff;
+}
+
+/* Account details and settings */
+.dark-mode .accountDetails {
+  background: rgba(26, 26, 26, 0.9);
+  color: #ffffff;
+  border: 1px solid #333333;
+}
+
+.dark-mode .accountDetails h2 {
+  color: #ffffff;
+}
+
+.dark-mode .field-group label {
+  color: #ffffff;
+}
+
+.dark-mode .field-group input {
+  background: #2a2a2a;
+  border-color: #444444;
+  color: #ffffff;
+}
+
+.dark-mode .field-group input[readonly] {
+  background: #1a1a1a;
+  color: #aaaaaa;
+}
+
+.dark-mode .field-group select,
+.dark-mode .field-group input[type="time"] {
+  background: #2a2a2a;
+  border-color: #444444;
+  color: #ffffff;
+}
+
+.dark-mode .field-group select:focus,
+.dark-mode .field-group input[type="time"]:focus {
+  outline-color: #66ccff;
+  border-color: #66ccff;
+  background: #333333;
+}
+
+/* Sections and dividers */
+.dark-mode .settings-section {
+  border-bottom-color: #333333;
+}
+
+.dark-mode .settings-section h3 {
+  color: #ffffff;
+}
+
+/* Notification and preference settings */
+.dark-mode .notificationsSettings {
+  background: #1a1a1a;
+  border: 1px solid #333333;
+  color: #ffffff;
+}
+
+.dark-mode .preferencesSettings {
+  background: #1a1a1a;
+  border: 1px solid #333333;
+  color: #ffffff;
+}
+
+.dark-mode .sidebar {
+  background: #1a4a1b;
+}
+
+.dark-mode .nav-item {
+  color: #aaaaaa;
+}
+
+.dark-mode .nav-item:hover {
+  background: #2a5a2b;
+  color: #ffffff;
+}
+
+.dark-mode .nav-item-active {
+  background: #3da86f;
+  color: #ffffff;
+}
+
+.dark-mode .page-title {
+  color: #ffffff;
+}
+
+.dark-mode .page-subtitle {
+  color: #888888;
+}
+
+.dark-mode .card {
+  background: #2a2a2a;
+  border-color: #444444;
+}
+
+.dark-mode .section-label {
+  color: #ffffff;
+}
+
+.dark-mode .status-overall-label,
+.dark-mode .status-score-label {
+  color: #aaaaaa;
+}
+
+/* High-Contrast Mode */
+body.high-contrast {
+  background-image: url('./images/BloomBox_ContrastBackground.png');
+  color: black;
+}
+
+.high-contrast .auth-card {
+  background: black;
+  border-color: yellow;
+  border-width: 2px;
+  color: white;
+}
+
+.high-contrast .auth-title,
+.high-contrast .auth-subtitle,
+.high-contrast .auth-link,
+.high-contrast .auth-visited {
+  color: white;
+}
+
+.high-contrast .auth-input {
+  background: black;
+  border-color: yellow;
+  color: white;
+  font-family: 'Inter', sans-serif;
+  
+}
+
+.high-contrast .auth-input:focus {
+  outline-color: yellow;
+  border-color: yellow;
+}
+
+.high-contrast .primary-btn {
+  background: yellow;
+  color: black;
+}
+
+.high-contrast .primary-btn:hover {
+  background: white;
+  color: black;
+}
+
+.high-contrast .change-btn {
+  background: yellow;
+  color: black;
+}
+
+.high-contrast .change-btn:hover {
+  background: white;
+  color: black;
+}
+
+/* Form elements */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  font-family: 'Inter', sans-serif;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid #c4ccd8;
+  font-size: 16px;
+  background: #f9f9f9;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  outline: 2px solid #3182ce;
+  outline-offset: 1px;
+  border-color: #3182ce;
+  background: fffffflack;
+}
+
+.high-contrast .accountDetails {
+  background: black;
+  border: 2px solid yellow;
+  color: white;
+}
+
+.high-contrast .accountDetails h2 {
+  color: white;
+}
+
+.high-contrast .field-group label {
+  color: #ffff00;
+}
+
+.high-contrast .field-group input {
+  background: black;
+  border: 1px solid #00ffff;
+  color: white;
+}
+
+.high-contrast .sidebar {
+  background: black;
+  border-right: 2px solid #00ffff;
+}
+
+.high-contrast .nav-item {
+  color: #00ffff;
+}
+
+.high-contrast .nav-item:hover {
+  background: #00ffff;
+  color: black;
+}
+
+.high-contrast .nav-item-active {
+  background: #00ff00;
+  color: black;
+  font-weight: 600;
+}
+
+.high-contrast .home-card {
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
+}
+
+.high-contrast .preferencesSettings
+{
+  background: black;
+  border: 2px solid yellow;
+  color: white;
+}
+
+.high-contrast .notificationsSettings
+{
+  background: black;
+  border: 2px solid yellow;
+  color: white;
+}
+
+.high-contrast .field-group select,
+.high-contrast .field-group input[type="time"] {
+  background: black;
+  color: white;
+  border: 1px solid #00ffff;
+}
+
+.high-contrast h3 {
+  color: white;
+}
+

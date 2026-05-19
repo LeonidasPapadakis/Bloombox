@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bloombox - Camera</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="camera.css">
+</head>
+
+<body>
+
+  <!-- sidebar same as dashboard -->
+  <div class="sidebar">
+    <div class="brand">
+      <p class="brand-name">Bloombox</p>
+      <p class="brand-sub">Greenhouse Control</p>
+    </div>
+
+    <nav class="nav">
+      <a href="dashboard.html" class="nav-link">
+        <img src="assets/dashboard.png" class="icon" alt="Dashboard">
+        <span>Dashboard</span>
+      </a>
+
+      <a href="analytics.html" class="nav-link">
+        <img src="assets/analytics.png" class="icon" alt="Analytics">
+        <span>Analytics</span>
+      </a>
+
+      <a href="config.html" class="nav-link">
+        <img src="assets/control.png" class="icon" alt="Remote Control">
+        <span>Remote Control</span>
+      </a>
+      
+      <a href="#" class="nav-link active">
+        <img src="assets/camera.png" class="icon" alt="Camera">
+        <span>Camera</span>
+      </a>
+
+      <a href="logs.html" class="nav-link">
+        <img src="assets/logs.png" class="icon" alt="Logs">
+        <span>Logs</span>
+      </a>
+
+      <a href="account.html" class="nav-link">
+        <img src="assets/account.png" class="icon" alt="Account">
+        <span>Account</span>
+      </a>
+
+      <a href="privacyPolicy.html" class="nav-link">
+        <img src="assets/document.png" class="icon" alt="Logs">
+        <span> Privacy Policy</span>
+      </a>
+
+    </nav>
+  </div>
+
+  <div class="main">
+    <div class="page">
+
+      <div class="heading">
+        <div>
+          <h1 class="title">Camera</h1>
+          <p class="subtitle">Live feed and plant stress analysis</p>
+        </div>
+        <label class="system-select-label">
+          System
+          <select id="systemSelect" class="system-select"></select>
+        </label>
+      </div>
+
+      <!-- live feed and stress side by side -->
+      <div class="two-cols">
+
+        <!-- live feed -->
+        <div class="card">
+          <p class="label">Live Feed</p>
+
+          <div class="feed-box">
+            <div class="feed-empty">
+              <img src="/camera/stream" class="feed-empty-icon" alt="camera">
+              <p>Camera stream will appear here</p>
+              <p class="feed-empty-sub">Connect Raspberry Pi to enable</p>
+            </div>
+            <div class="feed-bottom">
+              <span class="feed-tag" id="camTag">CAM-A1</span>
+              <span class="feed-tag" id="clock">--:--:--</span>
+            </div>
+          </div>
+
+          <div class="feed-footer">
+            <span class="feed-info">Camera A1 &bull; 1080p &bull; 30fps</span>
+            <button class="btn-green" onclick="analysePlant()">📸 Capture Snapshot</button>
+          </div>
+        </div>
+
+        <!-- stress analysis -->
+        <div class="card">
+          <p class="label">Stress Analysis</p>
+          <p class="sublabel">Based on latest scan</p>
+
+          <div class="score-box">
+            <div class="score-circle" id="scoreCircle">
+              <span class="score-num" id="scoreNum">27</span>
+              <span class="score-out">/100</span>
+            </div>
+            <div>
+              <p class="score-status" id="scoreStatus">Low Stress</p>
+              <p class="score-conf" id="scoreConf">Confidence: 89%</p>
+              <p class="score-time" id="scoreTime">Last scan: 14:22:07</p>
+            </div>
+          </div>
+
+          <div class="bars">
+            <div class="bar-row">
+              <span class="bar-name">Yellow Pixel %</span>
+              <div class="bar-bg">
+                <div class="bar yellow-bar" id="yellowBar" style="width: 12%"></div>
+              </div>
+              <span class="bar-num" id="yellowNum">12%</span>
+            </div>
+            <div class="bar-row">
+              <span class="bar-name">Green Vibrancy</span>
+              <div class="bar-bg">
+                <div class="bar green-bar" id="greenBar" style="width: 81%"></div>
+              </div>
+              <span class="bar-num" id="greenNum">81%</span>
+            </div>
+            <div class="bar-row">
+              <span class="bar-name">Droop Detection</span>
+              <div class="bar-bg">
+                <div class="bar red-bar" id="droopBar" style="width: 8%"></div>
+              </div>
+              <span class="bar-num" id="droopNum">8%</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- photo history -->
+      <div class="card">
+        <div class="row-header">
+          <p class="label">Snapshot History</p>
+          <button class="btn-plain" onclick="clearPhotos()">Clear All</button>
+        </div>
+
+        <div class="photos" id="photoGrid">
+
+          <div class="photo">
+            <div class="photo-img">
+              <img src="assets/camera.png" class="photo-icon" alt="snapshot">
+            </div>
+            <div class="photo-info">
+              <p class="photo-time">Today 14:22</p>
+              <span class="photo-tag green-tag">Low Stress</span>
+            </div>
+          </div>
+
+          <div class="photo">
+            <div class="photo-img">
+              <img src="assets/camera.png" class="photo-icon" alt="snapshot">
+            </div>
+            <div class="photo-info">
+              <p class="photo-time">Today 12:00</p>
+              <span class="photo-tag green-tag">Low Stress</span>
+            </div>
+          </div>
+
+          <div class="photo">
+            <div class="photo-img">
+              <img src="assets/camera.png" class="photo-icon" alt="snapshot">
+            </div>
+            <div class="photo-info">
+              <p class="photo-time">Today 10:00</p>
+              <span class="photo-tag yellow-tag">Mild Stress</span>
+            </div>
+          </div>
+
+          <div class="photo">
+            <div class="photo-img">
+              <img src="assets/camera.png" class="photo-icon" alt="snapshot">
+            </div>
+            <div class="photo-info">
+              <p class="photo-time">Yesterday 18:00</p>
+              <span class="photo-tag yellow-tag">Mild Stress</span>
+            </div>
+          </div>
+
+          <div class="photo">
+            <div class="photo-img">
+              <img src="assets/camera.png" class="photo-icon" alt="snapshot">
+            </div>
+            <div class="photo-info">
+              <p class="photo-time">Yesterday 12:00</p>
+              <span class="photo-tag red-tag">High Stress</span>
+            </div>
+          </div>
+
+          <div class="photo">
+            <div class="photo-img">
+              <img src="assets/camera.png" class="photo-icon" alt="snapshot">
+            </div>
+            <div class="photo-info">
+              <p class="photo-time">Yesterday 08:00</p>
+              <span class="photo-tag red-tag">High Stress</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- before and after comparison -->
+      <div class="card">
+        <p class="label">7 Days Ago vs Now</p>
+
+        <div class="compare">
+          <div class="compare-side">
+            <p class="compare-title">7 Days Ago</p>
+            <div class="compare-img">
+              <img src="assets/camera.png" class="compare-photo" alt="old photo" id="old-photo">
+            </div>
+            <div class="compare-stats">
+              <div class="stat-row">
+                <span>Stress Score</span>
+                <span class="stat-val red-text" id="old-stress">41/100</span>
+              </div>
+              <div class="stat-row">
+                <span>Green Vibrancy</span>
+                <span class="stat-val red-text" id="old-green">62%</span>
+              </div>
+              <div class="stat-row">
+                <span>Yellow Pixels</span>
+                <span class="stat-val red-text" id="old-yellow">28%</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="arrow">→</div>
+
+          <div class="compare-side">
+            <p class="compare-title">Today</p>
+            <div class="compare-img">
+              <img src="assets/camera.png" class="compare-photo" alt="today photo" id="today-photo">
+            </div>
+            <div class="compare-stats">
+              <div class="stat-row">
+                <span>Stress Score</span>
+                <span class="stat-val green-text" id="new-stress">27/100</span>
+              </div>
+              <div class="stat-row">
+                <span>Green Vibrancy</span>
+                <span class="stat-val green-text" id="new-green">81%</span>
+              </div>
+              <div class="stat-row">
+                <span>Yellow Pixels</span>
+                <span class="stat-val green-text" id="new-yellow">12%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="verdict">
+          <img src="assets/check.png" class="verdict-icon" alt="improved" id="comparison-message">
+          <p id="verdictText">Plant health has <strong>improved</strong> over the past 7 days. Stress reduced by 14 points.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <script src="camera.js"></script>
+  <script src="preferences.js"></script>
+</body>
+
+</html>

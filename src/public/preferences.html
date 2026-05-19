@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bloombox - App Preferences</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="settingsBody">
+  <div id="userSettings">
+    <div class="sidebar">
+      <div class="sidebar-brand">
+        <a href="dashboard.html"><p class="brand-title">Bloombox</p></a>
+        <p class="brand-sub">User Settings</p>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="account.html" class="nav-item">
+          <span>Account Details</span>
+        </a>
+        <a href="security.html" class="nav-item">
+          <span>Security and Privacy</span>
+        </a>
+        <a href="preferences.html" class="nav-item-active">
+          <span>App Preferences</span>
+        </a>
+      </nav>
+    </div>
+
+    <div class="preferencesSettings">
+      <h2>App Preferences & Accessibility</h2>
+      
+      <!-- Display & Accessibility Settings -->
+      <div class="settings-section">
+        <h3>Display & Text Size</h3>
+        <div class="field-group">
+          <label for="textSize">Text Size:</label>
+          <select id="textSize">
+            <option value="small">Small (80%)</option>
+            <option value="normal" selected>Normal (100%)</option>
+            <option value="large">Large (120%)</option>
+            <option value="xlarge">Extra Large (150%)</option>
+          </select>
+        </div>
+        <div class="field-group checkbox-group">
+          <input type="checkbox" id="highContrast">
+          <label for="highContrast">High Contrast Mode</label>
+        </div>
+        <div class="field-group checkbox-group">
+          <input type="checkbox" id="darkMode">
+          <label for="darkMode">Dark Mode</label>
+        </div>
+      </div>
+
+      <button id="backToDashboardBtn" class="primary-btn" onclick="window.location.href='dashboard.html'">Back to Dashboard</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+  <script src="preferences.js"></script>
+</body>
+</html>
