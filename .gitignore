@@ -1,0 +1,4 @@
+secrets.env
+.env
+bloombox.db
+node_modules/
